@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a project for a Motorola Corporation 68008 SBC (Single Board Computer). The key feature of this SBC is it's put together using TTL (Transistor to Transistor Logic) ICs. Except for the 32K EPROM there are no pre programmable components used in this build. The SBC also features a 32K SRAM and a 68901 MFP (Multi-Function Peripheral) which provides a UART (Universal Asynchronous Receiver Transmitter), parallel port and four timers. For more details please have a look at the [documentation](docs).
+This is a project for a Motorola Corporation 68008 SBC (Single Board Computer). The key feature of this SBC is it's put together using TTL (Transistor to Transistor Logic) ICs. Except for the 32K EPROM there are no pre programmable components used in this build. The SBC also features a 32K SRAM and a 68901 MFP (Multi-Function Peripheral) which provides a UART (Universal Asynchronous Receiver Transmitter), parallel port and four timers. For more details please take a look at the [documentation](docs).
 
 ## History
 
