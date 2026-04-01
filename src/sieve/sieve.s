@@ -1,6 +1,6 @@
 |
 | Sieve of Eratosthenes using bits
-| 28.21.2025 JS
+| 28.2.2025 JS
 |
 
 | memory map

@@ -8,15 +8,15 @@ RAM_SIZE = 0x08000	| 32KB SRAM
 
 | setup
 .org RAM_HEAP
-        move.b #0xff, MFP_DDR		| set gpio to output
+	move.b #0xff, MFP_DDR		| set gpio to output
 
 | loop
 loop:
-        move.b #0x55, MFP_GPDR		| output leds
+	move.b #0x55, MFP_GPDR		| output leds
 	move #25, %d0			| 250 ms
 	jsr delay			| wait
 
-        move.b #0xaa, MFP_GPDR		| output leds
+	move.b #0xaa, MFP_GPDR		| output leds
 	move #25, %d0			| 250 ms
 	jsr delay			| wait
 
