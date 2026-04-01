@@ -23,12 +23,12 @@ $| = 1;
 
 my %opts;
 if(@ARGV < 1 or !getopts('bmd:f:', \%opts)) {
-        print "syntax: $0 -d <device> -b -m -f <file>\n";
+	print "syntax: $0 -d <device> -b -m -f <file>\n";
 	print "    -d: serial device\n";
 	print "    -b: send break\n";
 	print "    -m: monitor\n";
 	print "    -f: S-Record file to be downloaded\n";
-        exit 1;
+	exit 1;
 }
 
 my $loop = 1;
