@@ -23,18 +23,18 @@ $| = 1;
 
 my %opts;
 if(@ARGV < 1 or !getopts('bmd:f:', \%opts)) {
-	print "syntax: $0 -d <device> -b -m -f <file>\n";
-	print "    -d: serial device\n";
-	print "    -b: send break\n";
-	print "    -m: monitor\n";
-	print "    -f: S-Record file to be downloaded\n";
-	exit 1;
+        print "syntax: $0 -d <device> -b -m -f <file>\n";
+        print "    -d: serial device\n";
+        print "    -b: send break\n";
+        print "    -m: monitor\n";
+        print "    -f: S-Record file to be downloaded\n";
+        exit 1;
 }
 
 my $loop = 1;
 $SIG{INT}  = \&signal_handler;
 sub signal_handler {
-	$loop = 0;
+        $loop = 0;
 }
 
 my $device = defined $opts{'d'} ? $opts{'d'} : "/dev/ttyUSB0";
@@ -49,30 +49,30 @@ $dev->purge_all();
 $dev->read_const_time(100);
 
 if(defined($opts{'b'})) {
-	$dev->pulse_break_on(100);
+        $dev->pulse_break_on(100);
 }
 
 if(defined($opts{'f'})) {
-	my $file = $opts{'f'};
-	open(FILE, '<', $file) or die "can't open $file\n";
-	while(<FILE>) {
-		$dev->write($_);
-		my ($n, $char) = $dev->read(1);
-		$n and print $char;
-	}
-	close FILE;
-	# send EOT
-	$dev->write(pack("C", 0x04));
-	my ($n, $char) = $dev->read(1);
-	$n and print $char;
+        my $file = $opts{'f'};
+        open(FILE, '<', $file) or die "can't open $file\n";
+        while(<FILE>) {
+                $dev->write($_);
+                my ($n, $char) = $dev->read(1);
+                $n and print $char;
+        }
+        close FILE;
+        # send EOT
+        $dev->write(pack("C", 0x04));
+        my ($n, $char) = $dev->read(1);
+        $n and print $char;
 }
 
 if(defined($opts{'m'})) {
-	$dev->read_const_time(1000);
-	while($loop and $opts{'m'}) {
-		my ($n, $char) = $dev->read(1);
-		$n and print $char;
-	}
+        $dev->read_const_time(1000);
+        while($loop and $opts{'m'}) {
+                my ($n, $char) = $dev->read(1);
+                $n and print $char;
+        }
 }
 
 $dev->close();

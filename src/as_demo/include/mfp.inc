@@ -2,6 +2,7 @@
 |
 | 68901 MFP Register Addresses
 |
+
 MFP = 0xf8000		| Base Address of MFP
 MFP_GPDR = MFP+0x01	| General Purpose I/O Data Register
 MFP_AER = MFP+0x03	| Active Edge Register
