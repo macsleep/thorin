@@ -11,7 +11,3 @@ Here you can find a few images of the Thorin hardware. The new board has a few m
 ## The New
 
 ![new](images/new_top.png)
-
-![top](images/pcb_top.png)
-
-![bottom](images/pcb_bottom.png)
