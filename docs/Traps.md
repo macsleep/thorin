@@ -26,7 +26,7 @@ PENDING_CHAR = 7
 
 	move #PENDING_CHAR, %d0
 	trap #15
-	| 0 (nothing) or 1 (data available) in %d0.l
+	| 0 (nothing) or 1 (data available) in %d1.l
 </pre>
 
 ## Get the Centi Seconds since Startup
