@@ -22,7 +22,6 @@ loop:
 
         bra.s        loop
 
-
 | functions
 delay:
         movem.l %d0-%d2, -(%sp)          | push registers
