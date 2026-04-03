@@ -32,9 +32,9 @@ uint32_t centis() {
                 "move #8, %%d0\n\t"
                 "trap #15\n\t"
                 "move.l %%d1, %0\n\t"
-                : "=r"(ticks)                        // output
+                : "=r"(ticks)                     // output
                 :                                 // input
-                : "d0", "d1", "cc", "memory"        // clobbers
+                : "d0", "d1", "cc", "memory"      // clobbers
         );
 
         return ticks;
@@ -54,10 +54,10 @@ int main(void) {
         uint32_t *vector_table = (uint32_t *)0x00000000;
         vector_table[64+8] = (uint32_t)isr_timer_b;
 
-        MFP_DDR = 0xff;                // gpio as output
-        MFP_VR = 0x40;                // MFP interrupts start at 0x100
+        MFP_DDR = 0xff;          // gpio as output
+        MFP_VR = 0x40;           // MFP interrupts start at 0x100
         MFP_TBCR |= 0x15;        // frequency 2457600 Hz / 64 / (192 *2)
-        MFP_TBDR = 192;                // timer b value
+        MFP_TBDR = 192;          // timer b value
         MFP_IERA |= 0x01;        // enable timer b interrupt
         MFP_IMRA |= 0x01;        // timer b interrupt mask
 
